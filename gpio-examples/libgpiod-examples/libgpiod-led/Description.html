@@ -1,0 +1,28 @@
+<HTML>
+    <HEAD>
+      <TITLE>Description.html</TITLE>
+    </HEAD>
+    <BODY style="font-family: Arial">
+    
+    <h1>libgpiod output example</h1><hr>
+    <p> This is the his is a LED blinking application with libgpiod using RZ/G2L and <a href="https://store.digilentinc.com/pmod-led-four-high-brightness-leds/">PMOD Module</a> </p>
+    
+    <h2>Build</h2><hr>
+    <p>To use libgpiod in RZ-G, in yocto, add the recipe to image, this can be done in local.conf with
+    <pre style="background-color: #F6F8FA">
+    IMAGE_INSTALL_append = “ libgpiod libgpiod-tools”
+    </pre>
+    You must install a Yocto SDK that contains the libgpiod library for RZG2L.
+    <pre style="background-color: #F6F8FA">
+    $ source /opt/poky/3.1.5/environment-setup-aarch64-poky-linux
+    $ make
+    </pre>
+    </p>
+    
+    <h2>run</h2><hr>
+    <pre style="background-color: #F6F8FA">
+    $ ./libgpiod-led
+    </pre>
+        
+    </BODY>
+</HTML>
