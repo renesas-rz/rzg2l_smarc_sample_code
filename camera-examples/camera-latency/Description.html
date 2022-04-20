@@ -1,0 +1,33 @@
+<HTML>
+    <HEAD>
+      <TITLE>Description.html</TITLE>
+    </HEAD>
+    <BODY style="font-family: Arial">
+    
+    <h1>camera latency example</h1><hr>
+    <p> This is the camera latency example using MIPI camera and RZ/G2L </p>
+    
+    <h2>Build</h2><hr>
+    You must install a Yocto SDK for RZG2L.
+    <pre style="background-color: #F6F8FA">
+    $ source /opt/poky/3.1.5/environment-setup-aarch64-poky-linux
+    $ make
+    </pre>
+    </p>
+    
+    <h2>run</h2><hr>
+    <pre style="background-color: #F6F8FA">
+    $ systemctl stop weston 
+    $ media-ctl -d /dev/media0 -r
+    $ media-ctl -d /dev/media0 -V "'ov5645 0-003c':0 [fmt:UYVY8_2X8/1920x1080 field:none]"
+    $ media-ctl -d /dev/media0 -l "'rzg2l_csi2 10830400.csi2':1 -> 'CRU output':0 [1]"
+    $ media-ctl -d /dev/media0 -V "'rzg2l_csi2 10830400.csi2':1 [fmt:UYVY8_2X8/1920x1080 field:none]" 
+    $ gst-launch-1.0 v4l2src device=/dev/video0 io-mode=dmabuf ! video/x-raw,format=BGRx ! fbdevsink 
+        
+    $ ctrl-C 
+    
+    $ nice -20 ./camera-latency
+    </pre>
+        
+    </BODY>
+</HTML>
