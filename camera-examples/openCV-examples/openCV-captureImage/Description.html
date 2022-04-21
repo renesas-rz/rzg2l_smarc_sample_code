@@ -1,0 +1,29 @@
+<HTML>
+    <HEAD>
+      <TITLE>Description.html</TITLE>
+    </HEAD>
+    <BODY style="font-family: Arial">
+    
+    <h1>Capture Image using openCV</h1><hr>
+    <p> This is the image capture from MIPI camera using openCV and RZ/G2L </p>
+    
+    <h2>Build</h2><hr>
+    <p>To use openCV in RZ-G, in yocto, add the recipe to image, this can be done in local.conf with
+    <pre style="background-color: #F6F8FA">
+    IMAGE_INSTALL_append = " opencv"”
+    </pre>
+    You must install a Yocto SDK that contains the openCV library for RZG2L.
+    <pre style="background-color: #F6F8FA">
+    $ source /opt/poky/3.1.5/environment-setup-aarch64-poky-linux
+    $ cmake -DCMAKE_TOOLCHAIN_FILE=../rzg2_aarch64-gnu.toolchain.cmake .
+    $ make
+    </pre>
+    </p>
+    
+    <h2>run</h2><hr>
+    <pre style="background-color: #F6F8FA">
+    $ ./openCV-captureImage /dev/video0
+    </pre>
+        
+    </BODY>
+</HTML>
