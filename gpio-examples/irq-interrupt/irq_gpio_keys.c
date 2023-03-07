@@ -19,7 +19,7 @@ int main() {
 
   //for LED output using gpiod
   char *chipname = "gpiochip0";
-	unsigned int line_num = 346;	// GPIO Pin P43_2 = 43*8 + 0 =344 //Pmod0-8
+	unsigned int line_num = 346;	// GPIO Pin P43_2 = 43*8 + 2 =346 //Pmod0-8
 	unsigned int val;
 	struct gpiod_chip *chip;
 	struct gpiod_line *line;
